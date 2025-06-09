@@ -1,8 +1,9 @@
 import { Hono } from 'hono'
 import { renderToString, HydrationScript, generateHydrationScript } from 'solid-js/web'
 import App from './App';
-const app = new Hono()
+import { env } from "cloudflare:workers";
 
+const app = new Hono<{ Bindings: typeof env }>()
 app.get('/', (c) => {
   const html = renderToString(() => <>
     Hello from SolidJS!
@@ -45,8 +46,13 @@ ${html}
   `)
 })
 
+app.get('/t', (c) => {
+  const html = renderToString(() => <App />)
+
+  return c.newResponse('Hello from Hono!')
+})
+
 app.get('*', async (c) => {
-  //@ts-ignore
   const response = await c.env.ASSETS.fetch(c.req.raw)
   return response
 })
