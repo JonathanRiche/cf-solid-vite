@@ -12,8 +12,8 @@ export default defineConfig({
     external: ['solid-js/web']
   },
   optimizeDeps: {
-    include: ['solid-js'],
-    exclude: ['solid-js/web'],
+    include: ['solid-js', 'solid-js/web'],
+    // exclude: ['solid-js/web'],
     // exclude: ['sqlocal'],
   }
 })
