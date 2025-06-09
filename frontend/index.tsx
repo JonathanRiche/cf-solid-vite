@@ -1,4 +1,3 @@
-
 import { render } from 'solid-js/web';
 
 const root = document.getElementById('root');
@@ -11,5 +10,5 @@ const App = () => {
 	);
 };
 
-render(() => <App />, root);
+render(() => <App />, root!);
 

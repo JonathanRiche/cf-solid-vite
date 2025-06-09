@@ -46,10 +46,9 @@ ${html}
   `)
 })
 
-app.get('/t', (c) => {
-  const html = renderToString(() => <App />)
+app.get('/test-manual', (c) => {
 
-  return c.newResponse('Hello from Hono!')
+  return c.html('hello')
 })
 
 app.get('*', async (c) => {
