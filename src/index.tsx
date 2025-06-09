@@ -1,7 +1,5 @@
 import { Hono } from 'hono'
-import { renderToString } from 'solid-js/web'
-import { HydrationScript } from "solid-js/web";
-import { generateHydrationScript } from "solid-js/web";
+import { renderToString, HydrationScript, generateHydrationScript } from 'solid-js/web'
 import App from './App';
 const app = new Hono()
 
